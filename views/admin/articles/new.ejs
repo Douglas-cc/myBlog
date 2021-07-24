@@ -1,0 +1,38 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<div class="container">
+  <hr>
+  <div class="card">
+    <div class="card-header">
+      <h2>Novo Artigo</h2>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/articles/save">
+        <input class="form-control" type="text" name="title" placeholder="Adicione Titulo do artigo"><br>
+        <h4>Categoria</h4>
+        <!-- categories é a variavel do findAll.then()  que dei o mesmo nome da tabela do banco de dados, 
+        category é name da tag <select> o id da tabela vamos usar para pegar cada titulo de categoria e
+        exibir no option do selectbox -->
+        <select name="category" class="form-control">
+          <% categories.forEach((category) => { %>
+            <option value="<%= category.id %>"><%= category.title %></option>
+          <% }) %>
+        </select><br>
+        <textarea class="form-control" placeholder="Escreve o artigo" name="body" id="article"></textarea><br>
+        <button class="btn btn-success">Publicar</button>
+      </form><br>
+    </div>
+  </div>
+</div>
+<%- include('../../partials/footer.ejs') %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+  tinymce.init({
+    language: "pt_BR",
+    selector:"#article",
+    plugins: [
+      'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+    ]
+  })
+</script>
