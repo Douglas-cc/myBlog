@@ -1,9 +1,9 @@
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize')
 
-const connection = new Sequelize('myblog', 'root', 'jedi1290',{
+const connection = new Sequelize('myblog', 'root', 'jedi1290', {
   host: 'localhost',
   dialect: 'mysql',
-  timezone: "-03:00"
-});
+  timezone: '-03:00'
+})
 
-module.exports = connection;
+module.exports = connection

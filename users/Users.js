@@ -1,17 +1,17 @@
-const Sequelize = require("sequelize");
-const connection = require("../database/database");
+const Sequelize = require('sequelize')
+const connection = require('../database/database')
 
 const User = connection.define('users', {
-  email:{
+  email: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  password:{
+  password: {
     type: Sequelize.STRING,
     allowNull: false
   }
-});
+})
 
-// User.sync({ force: true });
+// User.sync({ force: true })
 
-module.exports = User;
+module.exports = User
