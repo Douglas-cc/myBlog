@@ -9,13 +9,25 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/">Home</a>
           </li>
-          <% categories.forEach(category => { %>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/categories/">Categorias</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/users/create">Cadastra-se</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+
+          <!-- <% categories.forEach(category => { %>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/category/<%= category.slug %>"><%= category.title %></a>
             </li>            
-          <% }) %>
+          <% }) %> -->
         </ul>
     </div>                
   </div>
 </nav
-

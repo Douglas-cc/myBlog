@@ -9,7 +9,8 @@ const Article = require('./articles/Article')
 const categoriesController = require('./categories/CategoriesController')
 const articlesController = require('./articles/ArticlesController')
 const usersController = require('./users/UsersController')
-
+const dotenv = require('dotenv')
+dotenv.config()
 const app = express()
 
 // Views engine
@@ -71,7 +72,8 @@ app.get('/:slug', (req, res) => {
   })
 })
 
+port = process.env.NODE_LOCAL_PORT
 // Porta
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log('O servidor está Ativo')
 })
