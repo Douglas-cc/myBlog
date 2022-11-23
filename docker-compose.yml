@@ -1,17 +1,22 @@
+version: "3.8"
 services:
-  db_mysql:
-    image: mysql/mysql-server
-    env_file: ./.env
+  db:
+    image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_ROOT_PASSWORD: jedi1290
+      MYSQL_DATABASE: db-blog
     ports:
-      - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
-  
-  app:
+      - "3306:3306"  
+    volumes:
+      - db-blog:/var/lib/mysql
+
+  web:
+    depends_on:
+      - db
     build: .
     ports:
-      - "$NODE_LOCAL_PORT:$NODE_DOCKER_PORT"
-    depends_on:
-      - db_mysql
-    
+      - "4000:4000"
+    restart: on-failure
+
+volumes: 
+  db-blog:    
